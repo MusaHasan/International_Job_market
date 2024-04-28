@@ -1,5 +1,16 @@
 import React from "react";
+import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import { HomeCards } from "./components/HomeCards";
 
-export const App = () => {
-  return <div>App</div>;
+const App = () => {
+  return (
+    <>
+      <Navbar />
+      <Hero title="Test Title" subtitle="Test SubTitle" />
+      <HomeCards />
+    </>
+  );
 };
+
+export default App;
