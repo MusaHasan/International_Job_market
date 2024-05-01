@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -25,6 +26,7 @@ const JobPage = ({ deleteJob }) => {
   // return loading ? <Spinner /> : <div>{job.title}</div>;
   const navigate = useNavigate();
   const job = useLoaderData();
+
   const onDeleteClick = (jobId) => {
     const confirm = window.confirm(
       "Are you sure you want to delete this listing?"
@@ -32,6 +34,7 @@ const JobPage = ({ deleteJob }) => {
 
     if (!confirm) return;
     deleteJob(jobId);
+    toast.success("Job deleted successfully!");
     navigate("/jobs");
   };
 
