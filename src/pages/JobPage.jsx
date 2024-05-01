@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
 // import { Spinner } from "../components/Spinner";
 
-const JobPage = () => {
+const JobPage = ({ deleteJob }) => {
   // const { id } = useParams();
   // const [job, setJob] = useState(null);
-  const job = useLoaderData();
   // useEffect(() => { // Data Fetching using ordinery way
   //   const fetchJob = async () => {
   //     const apiUrl = `/api/jobs/${id}`;
@@ -24,6 +23,17 @@ const JobPage = () => {
   //   fetchJob();
   // }, []);
   // return loading ? <Spinner /> : <div>{job.title}</div>;
+  const navigate = useNavigate();
+  const job = useLoaderData();
+  const onDeleteClick = (jobId) => {
+    const confirm = window.confirm(
+      "Are you sure you want to delete this listing?"
+    );
+
+    if (!confirm) return;
+    deleteJob(jobId);
+    navigate("/jobs");
+  };
 
   return (
     <>
