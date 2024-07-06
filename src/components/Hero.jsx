@@ -1,8 +1,8 @@
 import React from "react";
 
 export const Hero = ({
-  title = "Defaulte Text",
-  subtitle = "Default Text",
+  title = "International Job Market",
+  subtitle = "Find Your Desire Job",
 }) => {
   return (
     <section className="bg-indigo-700 py-20 mb-4">
